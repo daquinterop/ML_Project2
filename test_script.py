@@ -3,8 +3,8 @@ import sys
 sys.path.insert(1, 'Project2')
 
 import numpy as np
-# import perceptron as p
-# import gradient_descent as gd
+import perceptron as p
+import gradient_descent as gd
 
 
 def load_data(fname):
@@ -33,27 +33,27 @@ def load_data(fname):
   return X, Y
 
 
-# X,Y = load_data("data_1.txt")
-# w,b = p.perceptron_train(X,Y)
-# test_acc = p.perceptron_test(X,Y,w,b)
-# print("Perceptron:",test_acc)
+X,Y = load_data("data_1.txt")
+w,b = p.perceptron_train(X,Y)
+test_acc = p.perceptron_test(X,Y,w,b)
+print("Perceptron:",test_acc)
 
-# X,Y = load_data("data_2.txt")
-# w,b = p.perceptron_train(X,Y)
-# X,Y = load_data("data_1.txt")
-# test_acc = p.perceptron_test(X,Y,w,b)
-# print("Perceptron:",test_acc)
-
-
-# def df_test1(x):
-#   return np.array([2*x[0]])
-
-# x = gd.gradient_descent(df_test1,np.array([5.0]),0.1)   
-# print("Gradient Descent:", x)
+X,Y = load_data("data_2.txt")
+w,b = p.perceptron_train(X,Y)
+X,Y = load_data("data_1.txt")
+test_acc = p.perceptron_test(X,Y,w,b)
+print("Perceptron:",test_acc)
 
 
-# def df_test2(x):
-#   return np.array([2*x[0],3*x[1]*x[1]])
+def df_test1(x):
+  return np.array([2*x[0]])
 
-# x = gd.gradient_descent(df_test2,np.array([3.0,1.0]),0.1)   
-# print("Gradient Descent:", x)
+x = gd.gradient_descent(df_test1,np.array([5.0]),0.1)   
+print("Gradient Descent:", x)
+
+
+def df_test2(x):
+  return np.array([2*x[0],3*x[1]*x[1]])
+
+x = gd.gradient_descent(df_test2,np.array([3.0,1.0]),0.1)   
+print("Gradient Descent:", x)

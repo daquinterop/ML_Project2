@@ -31,17 +31,3 @@ def perceptron_train(X,Y):
 def perceptron_test(X_test, Y_test, w, b):
     Y_pred = np.array([np.sign(sum(w * sample + b)) for sample in X_test])
     return np.mean([y_pred == y for y_pred, y in zip(Y_pred, Y_test)])
-
-
-if __name__ == '__main__':
-    from test_script import load_data
-    X,Y = load_data("data_1.txt")
-    w,b = perceptron_train(X,Y)
-    test_acc = perceptron_test(X,Y,w,b)
-    print("Perceptron:",test_acc)
-
-    X,Y = load_data("data_2.txt")
-    w,b = perceptron_train(X,Y)
-    X,Y = load_data("data_1.txt")
-    test_acc = perceptron_test(X,Y,w,b)
-    print("Perceptron:",test_acc)
